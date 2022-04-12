@@ -7,14 +7,14 @@ For example like this...
 
 
 
-v2.0.0 (2022-02-05)
+v2.0.0 (2022-03-10)
 ------------------------
 
 * Moved to a new location.
 
 
 
-v1.1.0 (2021-02-12)
+v1.1.0 (2022-03-10)
 ------------------------
 
 * Enabling generating documentation from comments using pdoc and pydoc.
@@ -22,7 +22,7 @@ v1.1.0 (2021-02-12)
 
 
 
-v1.0.0 (2021-02-12)
+v1.0.0 (2022-03-10)
 ------------------------
 
 * First release, extracted from course material and further developed.
