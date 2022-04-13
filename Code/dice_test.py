@@ -27,6 +27,15 @@ class TestDiceClass(unittest.TestCase):
         exp3 = 4
         self.assertEqual(res3, exp3)
 
+
+    def test_roll_a_dice(self):
+        "Roll a dice and check value is in bounds."
+        die = dice.Dice()
+
+        res0 = die.roll()
+        exp0 = 1 <= res0 <= die.hard
+        self.assertTrue(exp0)
+
     def test_roll_a_dice_hard(self):
         "Roll a dice in the hard level and check value is in bounds."
         die = dice.Dice()
