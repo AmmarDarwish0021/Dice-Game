@@ -27,13 +27,16 @@ class Player():
         
         return self.the_scores
     
-    def highScore(self, list_of_scores):
+    def highScore(self, list_of_scores_lists):
         "Taking a list of scores as a parameter and return the highest score"
         highest_number = 0
+        list_of_scores = []
+        for a_list in list_of_scores_lists:
+            list_of_scores.append(sum(a_list))
         
-        for x in range(len(list_of_scores)):
+        for x in range(0, len(list_of_scores)):
             if highest_number < list_of_scores[x]:
-               highest_number = list_of_scores[x]
+                highest_number = list_of_scores[x]
         
         return highest_number
 
@@ -55,9 +58,8 @@ class Player():
             print(i)
     
     def change_the_name(self, new_name):
-
         self.dic[new_name] = self.dic.pop(self.name)
-        dic1=self.dic  
+        dic1 = self.dic
         return dic1
 
 
@@ -68,12 +70,12 @@ if __name__ == '__main__':
     f = Player()
     s = f.scores()
     print(s)
-    #print(f.register_results(s))
-    #k = f.scores()
-    #print(k)
-    #print(f.register_results(k))
-    #d = f.scores()
-    #print(d)
-    #print(f.register_results(d))
-    #print(f.change_the_name('sss'))
-
+    print(f.register_results(s))
+    k = f.scores()
+    print(k)
+    print(f.register_results(k))
+    d = f.scores()
+    print(d)
+    print(f.register_results(d))
+    print(f.change_the_name('kkk'))
+    print(f.highScore(f.dic['kkk']))
