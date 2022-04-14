@@ -7,8 +7,8 @@ import dice
 import player
 
 
-class AI():
-    "AI class."
+class AI:
+    """AI class."""
 
     def __init__(self):
         self.game = 0

@@ -1,9 +1,14 @@
-from re import M, S
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""A class rolling dices."""
+
 from player import Player
-from dice import Dice
 from AI import AI
 
+
 def change_name(name):
+    """Option to change name of a player"""
     print("\nDo you want to change player name?")
     print("Enter \"y\" for yes.")
     print("Enter \"n\" for no.")
@@ -19,10 +24,10 @@ def change_name(name):
             print("Not a valid choice. Please enter either \"y\" or \"n\".\n")
             continue
     return name
-    
 
 
 def next_step():
+    """Option for next step to take"""
     print("\nEnter \"p\" to start the game.")
     print("Enter \"s\" to show the scores.")
     print("Enter \"c\" to change the name.")
@@ -33,17 +38,20 @@ def next_step():
 
 
 def single_player_game():
+    """Single player game funtionality. Receive name input and set to the player."""
     comp = AI()
     player = Player()
     comp_player = Player()
     total_wins = 0
-    comp_player.name = "computer"
+    comp_player.name = "Computer"
     player.name = input("Choose a player name: ")
+    """As long as the player does not choose the restart or quit options, game will continue to be played.
+    Player can choose to change name during the game. Player can also choose to display scores"""
     while True:
         choice = next_step()
         if choice == "q":
             print("Exit the game..\n")
-            break   
+            break
         elif choice == "r":
             print("Restart The game...\n")
             player.get_the_game_resluts().clear()
@@ -53,17 +61,17 @@ def single_player_game():
         elif choice == "p":
             print("Start the game: \n")
             comp_score = comp.comp_scores()
-            List_of_scores_comp = comp_player.register_results(comp_score)
-            comp_high_score = comp_player.highScore(List_of_scores_comp)
-        
+            list_of_scores_comp = comp_player.register_results(comp_score)
+            comp_high_score = comp_player.high_score(list_of_scores_comp)
+
             player_score = player.scores()
-            List_of_scores_player = player.register_results(player_score)
-            player_high_score = player.highScore(List_of_scores_player)
-            
+            list_of_scores_player = player.register_results(player_score)
+            player_high_score = player.high_score(list_of_scores_player)
+
             if comp_high_score > player_high_score:
                 print("\nYou Lose!\n")
             elif comp_high_score < player_high_score:
-                total_wins =+ 1
+                total_wins += 1
                 print("\nYou Win!\n")
             elif comp_high_score == player_high_score:
                 print("\nIt's a draw!\n")
@@ -71,7 +79,8 @@ def single_player_game():
         elif choice == "c":
             old_name = player.name
             player.name = change_name(player.name)
-            player.dic[player.name] = player.dic.pop(old_name)
+            if player.dic:
+                player.dic[player.name] = player.dic.pop(old_name)
             continue
         elif choice == "s":
             print("Total Wins is: " + str(total_wins))
@@ -82,16 +91,21 @@ def single_player_game():
             print("\nNot a valid choice. Please enter either \"p\" or \"s\" or \"c\" or \"r\" or \"q\"")
             continue
 
+
 def multi_player_game():
+    """Multiplayer game follows similar logic to the single player game.
+    Two name inputs will be received and then set to both player one and two."""
     player1 = Player()
     player2 = Player()
     player1.name = input("Enter first player name: ")
     player2.name = input("Enter second player name: ")
+    """As long as the players do not choose the restart or quit options, game will continue to be played.
+        Players can choose to change name during the game. Players can also choose to display scores"""
     while True:
         choice = next_step()
         if choice == "q":
             print("Exit the game..\n")
-            break   
+            break
         elif choice == "r":
             print("Restart The game...\n")
             player1.dic.clear()
@@ -100,13 +114,13 @@ def multi_player_game():
         elif choice == "p":
             print("Start the game: \n")
             player1_score = player1.scores()
-            List_of_scores_player = player1.register_results(player1_score)
-            player1_high_score = player1.highScore(List_of_scores_player)
+            list_of_scores_player = player1.register_results(player1_score)
+            player1_high_score = player1.high_score(list_of_scores_player)
 
             player2_score = player2.scores()
-            List_of_scores_player2 = player2.register_results(player2_score)
-            player2_high_score = player2.highScore(List_of_scores_player2)
-        
+            list_of_scores_player2 = player2.register_results(player2_score)
+            player2_high_score = player2.high_score(list_of_scores_player2)
+
             if player2_high_score > player1_high_score:
                 print(f"\n{player2.name} win!\n")
             elif player2_high_score < player1_high_score:
@@ -120,22 +134,31 @@ def multi_player_game():
             continue
         elif choice == "c":
             print("Who wants to change his name?\n")
-            rename = input(f"1.{player1.name}        2.{player2.name}")
-            if rename == "1":
-                old_name = player1.name
-                player1.name = change_name(player1.name)
-                player1.dic[player1.name] = player1.dic.pop(old_name)
-            else:
-                old_name = player2.name
-                player2.name = change_name(player2.name)
-                player2.dic[player2.name] = player2.dic.pop(old_name)
-
-            continue
+            rename = input(f"1.{player1.name}  |  2.{player2.name}  :  ")
+            while True:
+                if rename == "1":
+                    old_name = player1.name
+                    player1.name = change_name(player1.name)
+                    if player1.dic:
+                        player1.dic[player1.name] = player1.dic.pop(old_name)
+                    break
+                elif rename == "2":
+                    old_name = player2.name
+                    player2.name = change_name(player2.name)
+                    if player2.dic:
+                        player2.dic[player2.name] = player2.dic.pop(old_name)
+                    break
+                else:
+                    print("Who wants to change his name?\n")
+                    rename = input(f"1.{player1.name}  |  2.{player2.name}  :  ")
         else:
             print("\nNot a valid choice. Please enter either \"n\" or \"r\" or \"q\"")
             continue
 
+
 if __name__ == '__main__':
+    """The main class and front display of the game. 
+    Here players can make decisions and select the game mode they wish to play."""
     print()
     print("            PIG (Dice Game)               ")
     print("-----------------------------------------")

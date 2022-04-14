@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"Unit testing."
+"Unit testing."""
 
 import unittest
 import dice
 
 
 class TestDiceClass(unittest.TestCase):
-    "Test the class."
+    """Test the class."""
 
     def test_init_default_object(self):
-        "Instantiate an object and check its properties."
+        """Instantiate an object and check its properties."""
         die = dice.Dice()
         self.assertIsInstance(die, dice.Dice)
 
@@ -27,9 +27,8 @@ class TestDiceClass(unittest.TestCase):
         exp3 = 4
         self.assertEqual(res3, exp3)
 
-
     def test_roll_a_dice(self):
-        "Roll a dice and check value is in bounds."
+        """Roll a die and check value is in bounds."""
         die = dice.Dice()
 
         res0 = die.roll()
@@ -37,23 +36,23 @@ class TestDiceClass(unittest.TestCase):
         self.assertTrue(exp0)
 
     def test_roll_a_dice_hard(self):
-        "Roll a dice in the hard level and check value is in bounds."
+        """Roll a die in the hard level and check value is in bounds."""
         die = dice.Dice()
 
         res1 = die.roll_hard()
         exp1 = 3 <= res1 <= die.hard
         self.assertTrue(exp1)
-    
+
     def test_roll_a_dice_medium(self):
-        "Roll a dice in the medium level and check value is in bounds."
+        """Roll a die in the medium level and check value is in bounds."""
         die = dice.Dice()
 
         res2 = die.roll_medium()
         exp2 = 2 <= res2 <= die.medium
         self.assertTrue(exp2)
-    
+
     def test_roll_a_dice_easy(self):
-        "Roll a dice in the easy level and check value is in bounds."
+        """Roll a die in the easy level and check value is in bounds."""
         die = dice.Dice()
 
         res3 = die.roll_easy()

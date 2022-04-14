@@ -6,8 +6,8 @@
 import dice
 
 
-class Player():
-    "Player Class"
+class Player:
+    """Player Class"""
     
     name = ''
     dic = {}
@@ -18,16 +18,16 @@ class Player():
         self.dic = {}
         
     def scores(self):
-        "Take all scores and put them into a list."
+        """Take all scores and put them into a list."""
         die = dice.Dice()
         self.the_scores = []
         for x in range(0, 5):
             value = die.roll()
             self.the_scores.append(value)
         return self.the_scores
-    
-    def highScore(self, list_of_scores_lists):
-        "Taking a list of scores as a parameter and return the highest score."
+
+    def high_score(self, list_of_scores_lists):
+        """Taking a list of scores as a parameter and return the highest score."""
         highest_number = 0
         list_of_scores = []
         for a_list in list_of_scores_lists:
@@ -38,7 +38,7 @@ class Player():
         return highest_number
 
     def register_results(self, scores1):
-        "Registering the results of rolling the dice 5 times in a dictionary as a value for player name key."
+        """Registering the results of rolling the dice 5 times in a dictionary as a value for player name key."""
         if self.name in self.dic.keys():
             self.dic[self.name].append(scores1)
         else:
@@ -47,5 +47,5 @@ class Player():
         return self.dic[self.name]
 
     def get_the_game_resluts(self):
-        "Get the results dicionary."
+        """Get the resulting dictionary."""
         return self.dic
