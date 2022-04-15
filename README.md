@@ -12,6 +12,13 @@ Get going
 
 This is how you can work with the development environment.
 
+### Game intellegence 
+
+The game has a single player mode and multiplayer mode
+For multi-player mode - each player will automatically get 5 random rolls. The total of the rolls will be compared with the other player’s rolls. The higher number wins.
+For single-player mode - the player will automatically get 5 random rolls. The computer also gets 5 random rolls. The total of the rolls will be compared with the computer’s rolls. The higher number wins.
+The player(s) can choose to change their names, see the results of their previous rounds, restart the current game, or quit the game.
+
 
 
 ### Check version of Python
@@ -83,7 +90,7 @@ The example program can be started like this.
 python guess/main.py
 ```
 
-All code is stored below the directory `guess/`.
+All code is stored below the directory `dice/`.
 
 
 
