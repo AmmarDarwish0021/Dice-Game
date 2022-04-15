@@ -10,6 +10,7 @@ class Dice:
     """Dice class."""
 
     def __init__(self):
+        """Instantiate an object and its properties."""
         self.rolls_made = 0
         self.hard = 6
         self.medium = 5

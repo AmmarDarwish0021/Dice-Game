@@ -24,7 +24,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertDictEqual(res2, exp2)
 
     def test_scores(self):
-        "Roll a dice 5 times and check each value in the list is in bounds"
+        """Roll a dice 5 times and check each value in the list is in bounds"""
         player1 = player.Player()
         self.assertIsInstance(player1, player.Player)
         res0 = 6
@@ -35,7 +35,7 @@ class TestPlayerClass(unittest.TestCase):
             self.assertTrue(exp)
 
     def test_highScore(self):
-        "Pass list of scores lists and check that highscore is in bounds."
+        """Pass list of scores lists and check that highscore is in bounds."""
         player1 = player.Player()
         self.assertIsInstance(player1, player.Player)
         list_a = []
@@ -50,7 +50,6 @@ class TestPlayerClass(unittest.TestCase):
         player1 = player.Player()
         self.assertIsInstance(player1, player.Player)
         exp = []
-
         res = player1.register_results(player1.scores())
         for x in range(len(res)):
             exp.append(player1.scores())
