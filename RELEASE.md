@@ -14,7 +14,7 @@ v2.0.0 (2022-03-10)
 
 
 
-v1.1.0 (2022-03-10)
+v1.1.0 (2021-03-10)
 ------------------------
 
 * Enabling generating documentation from comments using pdoc and pydoc.
@@ -22,7 +22,7 @@ v1.1.0 (2022-03-10)
 
 
 
-v1.0.0 (2022-03-10)
+v1.0.0 (2021-02-17)
 ------------------------
 
 * First release, extracted from course material and further developed.
