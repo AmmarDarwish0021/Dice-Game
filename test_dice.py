@@ -30,6 +30,7 @@ class TestDiceClass(unittest.TestCase):
     def test_roll_a_dice(self):
         """Roll a dice and check value is in bounds."""
         die = dice.Dice()
+        self.assertIsInstance(die, dice.Dice)
 
         res0 = die.roll()
         exp0 = 1 <= res0 <= die.hard
@@ -38,6 +39,7 @@ class TestDiceClass(unittest.TestCase):
     def test_roll_a_dice_hard(self):
         """Roll a dice in the hard level and check value is in bounds."""
         die = dice.Dice()
+        self.assertIsInstance(die, dice.Dice)
 
         res1 = die.roll_hard()
         exp1 = 3 <= res1 <= die.hard
@@ -46,6 +48,7 @@ class TestDiceClass(unittest.TestCase):
     def test_roll_a_dice_medium(self):
         """Roll a dice in the medium level and check value is in bounds."""
         die = dice.Dice()
+        self.assertIsInstance(die, dice.Dice)
 
         res2 = die.roll_medium()
         exp2 = 2 <= res2 <= die.medium
@@ -54,6 +57,7 @@ class TestDiceClass(unittest.TestCase):
     def test_roll_a_dice_easy(self):
         """Roll a dice in the easy level and check value is in bounds."""
         die = dice.Dice()
+        self.assertIsInstance(die, dice.Dice)
 
         res3 = die.roll_easy()
         exp3 = 1 <= res3 <= die.easy

@@ -3,14 +3,65 @@
 
 """A class rolling dices."""
 
-import game
 from player import Player
 from AI import AI
 
 
-def single_player_game(self):
+def comp_scores():
+    ai = AI()
+    while True:
+        print("\nEnter \"1\" for Easy mode.")
+        print("Enter \"2\" for Medium mode.")
+        print("Enter \"3\" for Hard mode.\n")
+        game_mode = input("Make choice: ").lower()
+        if game_mode == "1":
+            print("Easy mode selected.\n")
+            list_of_scores = ai.game_mode_1()
+            break
+        elif game_mode == "2":
+            print("Medium mode selected.\n")
+            list_of_scores = ai.game_mode_2()
+            break
+        elif game_mode == "3":
+            print("Hard mode selected.\n")
+            list_of_scores = ai.game_mode_3()
+            break
+        else:
+            print("Not a valid choice. Please enter either \"1\" or \"2\" or \"3\"")
+            continue
+    return list_of_scores
+
+def next_step():
+    """Option for next step to take"""
+    print("\nEnter \"p\" to start the game.")
+    print("Enter \"s\" to show the scores.")
+    print("Enter \"c\" to change the name.")
+    print("Enter \"r\" to restart the game.")
+    print("Enter \"q\" to quit.\n")
+    choice = input("Make choice: ").lower()
+    return choice
+
+def change_name(name):
+    """Option to change name of a player"""
+    print("\nDo you want to change player name?")
+    print("Enter \"y\" for yes.")
+    print("Enter \"n\" for no.")
+    while True:
+        choice = input("Make choice: ").lower()
+        if choice == "y":
+            new_name = input("\nOk. Enter new name: ")
+            name = new_name
+            break
+        elif choice == "n":
+            break
+        else:
+            print("Not a valid choice. Please enter either \"y\" or \"n\".\n")
+            continue
+    return name
+
+
+def single_player_game():
         """Single player game funtionality. Receive name input and set to the player."""
-        play = game.Game()
         comp = AI()
         player = Player()
         comp_player = Player()
@@ -22,7 +73,7 @@ def single_player_game(self):
         Player can choose to change name during the game. Player can also choose to display scores"""
         
         while True:
-            choice = play.next_step()
+            choice = next_step()
             if choice == "q":
                 print("Exit the game..\n")
                 break
@@ -51,7 +102,7 @@ def single_player_game(self):
                 continue
             elif choice == "c":
                 old_name = player.name
-                player.name = play.change_name(player.name)
+                player.name = change_name(player.name)
                 if player.dic:
                     player.dic[player.name] = player.dic.pop(old_name)
                 continue
@@ -74,7 +125,7 @@ def multi_player_game(self):
         """As long as the players do not choose the restart or quit options, game will continue to be played.
             Players can choose to change name during the game. Players can also choose to display scores"""
         while True:
-            choice = play.next_step()
+            choice = next_step()
             if choice == "q":
                 print("Exit the game..\n")
                 break
@@ -110,13 +161,13 @@ def multi_player_game(self):
                 while True:
                     if rename == "1":
                         old_name = player1.name
-                        player1.name = play.change_name(player1.name)
+                        player1.name = change_name(player1.name)
                         if player1.dic:
                             player1.dic[player1.name] = player1.dic.pop(old_name)
                         break
                     elif rename == "2":
                         old_name = player2.name
-                        player2.name = play.change_name(player2.name)
+                        player2.name = change_name(player2.name)
                         if player2.dic:
                             player2.dic[player2.name] = player2.dic.pop(old_name)
                         break
