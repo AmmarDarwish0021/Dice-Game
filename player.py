@@ -21,7 +21,7 @@ class Player:
         die = dice.Dice()
         self.the_scores = []
         for x_loop in range(0, 5):
-            value = die.roll(self)
+            value = die.roll()
             self.the_scores.append(value)
         return self.the_scores
 

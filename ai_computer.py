@@ -8,7 +8,7 @@ import dice
 class Ai_class:
     """Ai class."""
     def __init__(self):
-        """Instantiate an object and check its properties."""
+        """Instantiate an object and its properties."""
         self.game = 0
 
     def game_mode_1(self):
@@ -16,7 +16,7 @@ class Ai_class:
         die = dice.Dice()
         list_of_scores = []
         for x_loop in range(5):
-            list_of_scores.append(die.roll_easy(self))
+            list_of_scores.append(die.roll_easy())
         return list_of_scores
 
     def game_mode_2(self):
@@ -24,7 +24,7 @@ class Ai_class:
         die = dice.Dice()
         list_of_scores = []
         for x_loop in range(5):
-            list_of_scores.append(die.roll_medium(self))
+            list_of_scores.append(die.roll_medium())
         return list_of_scores
 
     def game_mode_3(self):
@@ -32,5 +32,5 @@ class Ai_class:
         die = dice.Dice()
         list_of_scores = []
         for x_loop in range(5):
-            list_of_scores.append(die.roll_hard(self))
+            list_of_scores.append(die.roll_hard())
         return list_of_scores

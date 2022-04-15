@@ -30,7 +30,7 @@ class TestPlayerClass(unittest.TestCase):
         res0 = 6
 
         res = player1.scores()
-        for x in res:
+        for x_loop in res:
             exp = 1 <= res0 <= 6
             self.assertTrue(exp)
 
@@ -39,7 +39,7 @@ class TestPlayerClass(unittest.TestCase):
         player1 = player.Player()
         self.assertIsInstance(player1, player.Player)
         list_a = []
-        for x in range(20):
+        for x_loop in range(20):
             list_a.append(player1.scores())
         res = player1.high_score(list_a)
         exp = 5 <= res <= 30
@@ -51,7 +51,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertIsInstance(player1, player.Player)
         exp = []
         res = player1.register_results(player1.scores())
-        for x in range(len(res)):
+        for x_loop in range(len(res)):
             exp.append(player1.scores())
             self.assertTrue(exp)
 
