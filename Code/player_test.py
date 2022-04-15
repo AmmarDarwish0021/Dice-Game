@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Unit testing."""
+"Unit testing."
 
 import unittest
 import player
 
 
 class TestPlayerClass(unittest.TestCase):
-    """Test the class."""
+    "Test the class."
 
     def test_init_default_object(self):
-        """Instantiate an object and check its properties."""
+        "Instantiate an object and check its properties."
         player1 = player.Player()
         self.assertIsInstance(player1, player.Player)
 
@@ -21,10 +21,10 @@ class TestPlayerClass(unittest.TestCase):
 
         res2 = player1.dic
         exp2 = {}
-        self.assertEqual(res2, exp2)
+        self.assertDictEqual(res2, exp2)
 
     def test_scores(self):
-        """Roll a die 5 times and check each value in the list is in bounds"""
+        "Roll a dice 5 times and check each value in the list is in bounds"
         player1 = player.Player()
         res0 = 6
 
@@ -34,22 +34,24 @@ class TestPlayerClass(unittest.TestCase):
             self.assertTrue(exp)
 
     def test_highScore(self):
-        """Pass list of scores lists and check value is in bounds."""
+        "Pass list of scores lists and check that highscore is in bounds."
         player1 = player.Player()
-
-        res = player1.highScore()
+        list_a = []
+        for x in range(20):
+            list_a.append(player1.scores())
+        res = player1.high_score(list_a)
         exp = 5 <= res <= 30
         self.assertTrue(exp)
+    
+    def test_register_results(self):
+        "Roll a dice 5 times each game and check the results(list)."
+        player1 = player.Player()
+        exp = []
 
-    # def test_register_results(self, scores1):
-    #     "Roll a dice in the medium level and check value is in bounds."
-    #     player1 = player.Player()
-
-    #     res = player1.register_results()
-    #     for key in res:
-    #         for i in value:
-    #             exp2 = 2 <= res <= die.medium
-    #             self.assertTrue(exp2)
+        res = player1.register_results(player1.scores())
+        for x in range(len(res)):
+            exp.append(player1.scores())
+            self.assertTrue(exp)
 
 
 if __name__ == '__main__':

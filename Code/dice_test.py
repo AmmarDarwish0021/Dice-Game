@@ -28,7 +28,7 @@ class TestDiceClass(unittest.TestCase):
         self.assertEqual(res3, exp3)
 
     def test_roll_a_dice(self):
-        """Roll a die and check value is in bounds."""
+        """Roll a dice and check value is in bounds."""
         die = dice.Dice()
 
         res0 = die.roll()
@@ -36,7 +36,7 @@ class TestDiceClass(unittest.TestCase):
         self.assertTrue(exp0)
 
     def test_roll_a_dice_hard(self):
-        """Roll a die in the hard level and check value is in bounds."""
+        """Roll a dice in the hard level and check value is in bounds."""
         die = dice.Dice()
 
         res1 = die.roll_hard()
@@ -44,7 +44,7 @@ class TestDiceClass(unittest.TestCase):
         self.assertTrue(exp1)
 
     def test_roll_a_dice_medium(self):
-        """Roll a die in the medium level and check value is in bounds."""
+        """Roll a dice in the medium level and check value is in bounds."""
         die = dice.Dice()
 
         res2 = die.roll_medium()
@@ -52,7 +52,7 @@ class TestDiceClass(unittest.TestCase):
         self.assertTrue(exp2)
 
     def test_roll_a_dice_easy(self):
-        """Roll a die in the easy level and check value is in bounds."""
+        """Roll a dice in the easy level and check value is in bounds."""
         die = dice.Dice()
 
         res3 = die.roll_easy()

@@ -4,8 +4,6 @@
 """An AI class"""
 
 import dice
-import player
-
 
 class AI:
     """AI class."""

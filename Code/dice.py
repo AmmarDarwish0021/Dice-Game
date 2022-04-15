@@ -9,12 +9,11 @@ import random
 class Dice:
     """Dice class."""
 
-    hard = 6
-    medium = 5
-    easy = 4
-
     def __init__(self):
         self.rolls_made = 0
+        self.hard = 6
+        self.medium = 5
+        self.easy = 4
 
     def roll(self):
         """Roll a die once and return the value."""

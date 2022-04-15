@@ -2,12 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """Unit testing."""
-import unittest
-from random import random
 
-import dice
-import player
-from Code.AI import AI
+import unittest
+import AI
 
 
 class TestAIClass(unittest.TestCase):
@@ -15,16 +12,21 @@ class TestAIClass(unittest.TestCase):
 
     def test_init_default_object(self):
         "Instantiate an object and check its properties."""
-        ai = AI()
+        ai = AI.AI()
         self.assertEqual(ai.game, 0)
 
     def test_comp_scores(self):
         """Check if the list length will be 5."""
-        ai = AI()
-        check1 = ai.comp_scores()
-        exp = 5
-        res1 = len(check1)
-        self.assertEqual(res1, exp)
+        ai = AI.AI()
+        res0 = ai.comp_scores()
+
+        for x in res0:
+            exp0 = 1 <= x <= 6
+            self.assertTrue(exp0) 
+
+        exp1 = 5
+        res1 = len(res0)
+        self.assertEqual(res1, exp1)
 
 
 if __name__ == '__main__':
